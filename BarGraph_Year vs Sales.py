@@ -23,5 +23,5 @@ for bar in bars:
         )
 
 
-
 plt.show()
+fig.savefig('BarGraph(Year_VS_Sales).png',dpi=200)
