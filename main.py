@@ -28,6 +28,7 @@ if __name__ == "__main__":
  df['saledate'] = df['saledate'].str.replace(r'\s*\(.*\)', '', regex=True)
  df['saledate'] = pd.to_datetime(df['saledate'], errors='coerce',utc=True)
 #Removing duplicates
+ 
 #1-Find if there are any duplicates to begin with
  duplicates=df[df.duplicated(keep=False)]
  print(duplicates)
