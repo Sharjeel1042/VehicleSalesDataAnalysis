@@ -20,7 +20,7 @@ if __name__ == "__main__":
  df['odometer']=df['odometer'].fillna(df['odometer'].median())
  df['color']=df['color'].fillna('Unknown')
  df['interior']=df['interior'].fillna('Unknown')
- df['mmr']=df['mmr'].fillna('Unknown')
+ df['mmr'] = pd.to_numeric(df['mmr'], errors='coerce').fillna(0).astype(int)
  df['sellingprice']=df['sellingprice'].fillna(0)
  df['sold']=df['saledate'].notnull()#Creating a new column to show that whether a car hs been sold yet ot not
  df=df.dropna(subset=['vin'])
@@ -35,6 +35,10 @@ if __name__ == "__main__":
  numDuplicates=df.duplicated().sum()
  print("Number of duplicates: ",numDuplicates)
  df.to_csv("cleaned_car_prices.csv", index=False)
+
+dfCleaned=pd.read_csv('cleaned_car_prices.csv')
+dfCleaned['mmr'] = pd.to_numeric(dfCleaned['mmr'], errors='coerce').fillna(0).astype(int)
+dfCleaned.to_csv("cleaned_car_prices.csv",index=False)
 
 
 
