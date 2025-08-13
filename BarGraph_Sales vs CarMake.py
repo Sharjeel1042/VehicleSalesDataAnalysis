@@ -1,9 +1,9 @@
 import numpy as np
 import pandas as pd
 import matplotlib.pyplot as plt
-from main import df
+from main import dfCleaned
 
-carsSold=df.groupby('make')['saledate'].count()
+carsSold=dfCleaned.groupby('make')['saledate'].count()
 carMake=carsSold.index.tolist()
 numSold=carsSold.values.tolist()
 
@@ -11,6 +11,7 @@ numSold=carsSold.values.tolist()
 fig, ax=plt.subplots(figsize=(18,6))
 bars=ax.bar(carMake,carsSold,width=0.5)
 plt.xticks(rotation=90)
+ax.set_xlabel('Car Make')
 for bar in bars:
     height=bar.get_height()
     ax.set_xticks(np.arange(len(carMake)))
