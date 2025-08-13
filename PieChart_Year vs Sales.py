@@ -1,9 +1,9 @@
 import numpy as np
 import matplotlib.pyplot as plt
-from main import df
+from main import dfCleaned
 
-df['year_group']=np.where(df['year']<2005,'Before 2005',df['year'])
-saleYears=df.groupby('year_group')['sellingprice'].count().sort_index()
+dfCleaned['year_group']=np.where(dfCleaned['year']<2005,'Before 2005',dfCleaned['year'])
+saleYears=dfCleaned.groupby('year_group')['sellingprice'].count().sort_index()
 plt.figure(figsize=(8,6),dpi=150)
 years=saleYears.index.tolist()
 counts=saleYears.values.tolist()
