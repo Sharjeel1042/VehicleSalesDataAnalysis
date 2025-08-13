@@ -1,10 +1,9 @@
 from matplotlib import pyplot as plt
-from main import df
+from main import dfCleaned
 
-sales=df.groupby('year')['saledate'].count()
+sales=dfCleaned.groupby('year')['saledate'].count()
 years = sales.index.tolist()
 counts = sales.values.tolist()
-sales=df.groupby('year')['saledate'].count()
 fig, ax=plt.subplots()
 bars=ax.bar(years,counts,width=0.9)
 plt.title('Bar Graph showing the most popular cars based on the model\'s year')
