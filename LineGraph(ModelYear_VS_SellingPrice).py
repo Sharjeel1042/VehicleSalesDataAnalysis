@@ -14,4 +14,4 @@ plt.title('Line graph to find the trend between model year and sold units')
 plt.xlabel('Model Year')
 plt.ylabel('Average Price')
 plt.show()
-
+plt.savefig('LineGraph(ModelYear_VS_AvgCondition).png',dpi=200)
